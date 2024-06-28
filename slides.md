@@ -57,7 +57,7 @@ A front-end engineer without a plaid shirt, resolutely without wigs, full of cur
 - 💞️ I'm looking for a passionate ⚡️, open 💥 and innovative 🧠 team to work with
 - 🌱 I’m currently learning 🍳cooking, 🌳potting and 🇬🇧english
 - 📫 How to reach me 🫱 <a href="mailto:zhouquan147369@gmail.com">Gmail</a> | <a href="https://twitter.com/zhouqua66139304" target="_blank">Twitter</a> 🫲
-/zhouLion/learning-visualizer/blob/main/diagram.svg
+
 <!--
 You can have `style` tag in markdown to override the style for the current page.
 Learn more: https://sli.dev/guide/syntax#embedded-styles
@@ -80,21 +80,22 @@ transition: slide-up
 layout: cover
 background: /projects.svg
 ---
+
 # Projects
 
 <div v-click>
-  <span>In 2016 I was graduated as GIS engineer </span>
+  <span>In 2016 I graduated as GIS engineer </span>
   <br>
-  <logos-jquery class="icon"/>
+  <a href="https://jquery.com"><logos-jquery class="icon"/></a>
   <logos-bootstrap class="icon"/>
-  <logos-openlayers class="icon"/>
-  <logos-d3 class="icon"/>
+  <a href="https://openlayers.org/"><logos-openlayers class="icon"/></a>
+  <a href="https://d3js.org/"><logos-d3 class="icon"/></a>
   <logos-require class="icon"/>
 </div>
 
   
 <div class="my-2" v-click>
-  <span>In 2017 the storm of the front-end reached Hefei, where I am located. </span>
+  <span>In 2017 a wave of change sweeps the front-end </span>
   <br>
   <logos-nodejs class="icon"/>
   <logos-browserify class="icon"/>
@@ -106,7 +107,7 @@ background: /projects.svg
 
 
 <div class="my-2" v-click>
-  <span>Since then, I've followed the evolution of the <logos-vue class="text-sm!"/> ecosystem </span>
+  <span>Since then, I've followed the evolution of the <logos-vue class="text-sm"/> ecosystem </span>
   
   <br>
   <logos-jest class="icon"/>
@@ -116,7 +117,7 @@ background: /projects.svg
   <logos-element class="icon"/>
   <logos-vitejs class="icon"/>
   <logos-nuxt class="icon"/>
-  <logos-vitest class="icon"/>
+  <a href="https://vitest.dev/"><logos-vitest class="icon"/></a>
   <logos-vueuse class="icon"/>
   <logos-windi-css class="icon"/>
   <logos-unocss class="icon"/>
@@ -128,22 +129,71 @@ background: /projects.svg
   @apply text-5xl bg-light-50 m-2 p-2 rounded-1 p-1 relative
 }
 </style>
+
 <!--
 Here is another comment.
 
-得益于大学和第一份工作所学，我是一名 GIS 老手
 Thanks to what I learned in college and my first job, I'm a GIS veteran
 
-对项目不挑食，身经百战使我能驾驭 PC端、移动端、小程序的项目开发
 I am not a picky eater for projects, and 
-my experience in a hundred battles allows me 
+my experience in so many projects which allows me 
 to control the project development of PC, mobile, and mini programs
 -->
 
 ---
-transition: slide-up
-layout: iframe-right
-url: https://htmlpreview.github.io/?https://github.com/zserge/awfice/blob/main/calculator.html
+
+# Screenshots of Company Projects
+<img
+  v-click="i+1" :src="src"
+  v-for="([type, src], i) in images"
+  :key="i"
+  class="center-v"
+  :style="calcStyle(type, i)" 
+/>
+
+<script setup>
+const images = [
+  ['H5','/image.jpg'],
+  ['H5','/image1.jpg'],
+  ['PC','https://user-images.githubusercontent.com/19882767/219876338-5fc67c20-b337-460c-86c9-ae3186369cf1.png'],
+  ['PC','https://user-images.githubusercontent.com/19882767/219264036-4d9abcc2-d4ca-46ed-aa57-701da86697f9.png'],
+  ['PC','https://user-images.githubusercontent.com/19882767/219265576-a961bd6e-6ac3-4682-ae6b-ca503837761a.png'],
+  ['PC','https://user-images.githubusercontent.com/19882767/219875148-82456e43-39fe-4c88-a516-83497c21f3b5.png'],
+  ['PC','https://user-images.githubusercontent.com/19882767/219875429-1f0be6fe-7fca-4aac-adbe-7595d49a0f59.png'],
+  ['PC','https://user-images.githubusercontent.com/19882767/219876815-2a673c71-14cf-407f-8492-ff5d1c85607c.png'],
+]
+
+const calcStyle = (type, i) => {
+  const layoutH = document.querySelector('#slide-content').clientHeight
+  const iphoneWH = [390, 844]
+  const pcWH = [1920, 1080]
+  if (type === 'PC') {
+    return {
+      width: `${layoutH * pcWH[0]/pcWH[1]})px`,
+      height: layoutH + 'px',
+      zIndex: i + 1
+    }
+  } else if (type === 'H5') {
+    return {
+      width: `${layoutH * iphoneWH[0]/iphoneWH[1]})px`,
+      height: layoutH + 'px',
+      zIndex: i + 1
+    }
+  }
+}
+</script>
+
+<style>
+.center-v {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+---
+layout: two-cols
 ---
 
 # Project0: awfice
@@ -157,7 +207,14 @@ the world smallest office suite
 data:text/html,<table style="text-align: center;width:80vw;margin: 0 auto;"><tbody><tr><td colspan="4"><textarea></textarea></td></tr></tbody><script>let d=document;let tbl=d.querySelector('tbody');let z=d.querySelector('textarea');let oc=(x)=>z.value+=x;let cl=()=>z.value='';let re=()=>{try{z.value=eval(z.value);}catch(error){cl();}};[[1,2,3,'+'],[4,5,6,'-'],[7,8,9,'*'],['C',0,'=','/']].forEach((a)=>{let r=d.createElement('tr');r.style.lineHeight='64px';tbl.appendChild(r);a.forEach((b)=>{let tb=d.createElement('tb');tb.innerText=b;tb.style.padding='16px';tb.style.border='1px solid';r.appendChild(tb);tb.onclick=b==='='?re:b==='C'?cl:()=>oc(b);})})</script></table>
 ```
 
-[Try or preview it on the right😊](https://htmlpreview.github.io/?https://github.com/zserge/awfice/blob/main/calculator.html)
+::right::
+
+<iframe src="data:text/html,%3Ctable%20style=%22text-align:%20center;width:80vw;margin:%200%20auto;%22%3E%3Ctbody%3E%3Ctr%3E%3Ctd%20colspan=%224%22%3E%3Ctextarea%3E%3C/textarea%3E%3C/td%3E%3C/tr%3E%3C/tbody%3E%3Cscript%3Elet%20d=document;let%20tbl=d.querySelector('tbody');let%20z=d.querySelector('textarea');let%20oc=(x)=%3Ez.value+=x;let%20cl=()=%3Ez.value='';let%20re=()=%3E%7Btry%7Bz.value=eval(z.value);%7Dcatch(error)%7Bcl();%7D%7D;%5B%5B1,2,3,'+'%5D,%5B4,5,6,'-'%5D,%5B7,8,9,'*'%5D,%5B'C',0,'=','/'%5D%5D.forEach((a)=%3E%7Blet%20r=d.createElement('tr');r.style.lineHeight='64px';tbl.appendChild(r);a.forEach((b)=%3E%7Blet%20tb=d.createElement('tb');tb.innerText=b;tb.style.padding='16px';tb.style.border='1px%20solid';r.appendChild(tb);tb.onclick=b==='='?re:b==='C'?cl:()=%3Eoc(b);%7D)%7D)%3C/script%3E%3C/table%3E" height="400px" width="100%"></iframe>
+
+<!--
+w哦
+https://github.com/zserge/awfice/pull/35
+-->
 
 ---
 transition: slide-up
@@ -165,52 +222,113 @@ layout: iframe-right
 url: https://robot.medcaastest.city.pingan.com/qa/triage_diagnosis
 ---
 
-# project1: triage diagnosis
+# project1: AI diagnosis Q&A
+A small web app docking AI diagnostic question and answer pair.
+
+- Powered by + <logos-vitejs class="logo-icon"/> + <logos-vue class="logo-icon" />
+- Screen-friendly 🖥️ 📲, progressive web app<logos-pwa class="logo-icon"/> 
+- Implemented an input method for `pinyin` myself～
+
+<style>
+.logo-icon {
+  @apply text-2xl bg-light-300 rounded p-1;
+}
+</style>
+
+---
+layout: cover
+---
+
+# Project2: nodepage
+A system that automatically publishes product prototypes and UI designs as online web pages
 
 
 ---
+layout: two-cols
+---
 
-# Project1: nodepage
-A system that automatically publishes product prototypes and UI designs as online web pages
+# Traditional document management
 
-<div class="flex justify-around">
-```mermaid
-graph TD
-$((Documents Management))
+## Background
+For information security reasons, 
+
+the Group's PRD and UI drafts are only allowed to be circulated on the intranet, 
+
+and this makes communication difficult.
+
+The diagram on the right illustrates this process 🫱
+
+::right::
+```mermaid 
+graph TB
+$[Documents Management]
 P[[PM]]
-U[[UED]]
-D[Quality Engineers]
+U[[UI designer]]
+D[Quality Engineer]
 E[Developers]
-B[Any service for hosting archives]
+B((oss or chat group))
 
-$ --> P  -->|upload prd archive| B
-$ --> U  -->|upload designs archive| B
+$ --> P -->|upload PRD archives| B
+$ --> U -->|upload designs archives| B
 
-B -->|download| D -->|unzip|D1[local] -->|open with browser|D2[local]
-B -->|download| E -->|unzip|E1[local] -->|open with browser|E2[local]
-B -->|download| U -->|unzip|U1[local] -->|open with browser|U2[local]
-B -->|download| P -->|unzip|P1[local] -->|open with browser|P2[local]
+B -->|download|D -->|unzip|D1[local] -->|open with browser|D2[local]
+B -->|download|E -->|unzip|E1[local] -->|open with browser|E2[local]
+B -->|download|U -->|unzip|U1[local] -->|open with browser|U2[local]
+B -->|download|P -->|unzip|P1[local] -->|open with browser|P2[local]
 ```
 
+
+---
+layout: two-cols
+---
+# How does nodepage handle it?
+
+So I wrote a program to simplify the process
+
+- Powered by <logos-vue class="logo-icon" /> + <logos-nodejs class="logo-icon" /> + <logos-git class="logo-icon" /> + <logos-koa class="logo-icon" />
+- Core idea: `PRD and UI drafts` -- git push to server --> `server` -- Resolve directories and generate static service links --> `Client` --（Use the links to browse the file contents）--END
+
+Show more on <a href="https://www.npmjs.com/package/nodepage" target="_blank"><logos-npm class="logo-icon" /> package/nodepage </a>
+
+::right::
 ```mermaid
-graph TD
-A[Designer] --> B{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
+graph TB
+$[Documents Management]
+P[[PM]]
+U[[UI designer]]
+D[Quality Engineer]
+E[Developers]
+B((oss or chat group))
+
+$ --> P -->|push to nodepage-backend| B
+$ --> U -->|push to nodepage-backend| B
+
+B -->|watch files and generate static server automatically| B
+B -->|View Online|D
+B -->|View Online|E
+B -->|View Online|U
+B -->|View Online|P
 ```
-</div>
+
+<style>
+.logo-icon {
+  @apply text-2xl bg-light-300 rounded p-1;
+}
+</style>
+
 ---
 layout: iframe-right
 url: https://zhoulion.github.io/learning-visualizer/#/
 ---
-# Project2: learning-visualizer
+
+# Project3: learning-visualizer
 Just play and try to explore data visualizations
 
 The visualizer techniques that I'm learning
 - [x]  Canvas - Basic computer web drawing API
-- [ ]  SVG - Define images using XML tags 
-- [x]  ThreeJS - Escape from lengthy 😥WebGL APIs and embrace 😆Threejs
-- [ ]  D3.js - I use D3 while there is a 2D chart that cannot be achieved with echarts
+- [x]  ThreeJS - 😢 Lengthy WebGL APIs => 👍 Embrace Threejs
 - [x]  Openlayers - This library makes it easy for me to draw web maps
+- [x]  SVG - Define images using XML tags 
+- [x]  D3.js - I use D3 while there is a 2D chart that cannot be achieved with echarts
 
 [Click here](https://www.npmjs.com/package/nodepage)
