@@ -7,13 +7,13 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.40.3",
-    "@slidev/theme-default": "*",
-    "@slidev/theme-seriph": "*"
+    "@slidev/cli": "latest",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest"
   },
   "devDependencies": {
-    "@iconify-json/ic": "^1.1.13",
-    "@iconify-json/logos": "^1.1.23",
+    "@iconify-json/ic": "latest",
+    "@iconify-json/logos": "latest",
     "postcss": "^8.2.14"
   }
 }
