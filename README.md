@@ -4,6 +4,8 @@
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ...
 
+## Showcase
+[snoopylion](https://snoopylion.netlify.app/3)
 
 ## GitHub Stats
 ![zhouLion's GitHub stats](https://github-readme-stats.vercel.app/api?username=zhouLion&show_icons=true)
