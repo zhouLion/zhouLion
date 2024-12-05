@@ -10,9 +10,9 @@
 ## GitHub Stats
 ![zhouLion's GitHub stats](https://github-readme-stats.vercel.app/api?username=zhouLion&show_icons=true)
 
-
 ## Top Langs
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=zhouLion)
+
+![Top Langs](https://wakatime.com/share/@Zhou/eed294b0-c7f3-4960-9d0a-ba6e8793465f.svg)
 
 
 <!---
